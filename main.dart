@@ -5,7 +5,7 @@ void	ft_print_intro() {
 	print('******************************************************\n'
 		'*~~~           Welcome to The Phonebook           ~~~*\n'
 		'*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\n'
-		'*~~~         You can use this comands:            ~~~*\n'
+		'*~~~         You can use this commands:           ~~~*\n'
 		'*~~~      ADD    - to save a new contact          ~~~*\n'
 		'*~~~      SEARCH - to display a specific contact  ~~~*\n'
 		'*~~~      EXIT   - to quit                        ~~~*\n'
@@ -28,7 +28,7 @@ void main()
 			} else if (inputText == "SEARCH" || inputText == "search") {
 				pb.searchContact();
 			} else {
-				print('Unknown comand! Please try again.');
+				print('Unknown command! Please try again.');
 			}
 		}
 	}

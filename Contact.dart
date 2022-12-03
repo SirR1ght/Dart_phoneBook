@@ -1,53 +1,38 @@
 import 'dart:io';
 
 class Contact {
-	String _firstname = "";
-	String _lastname = "";
+	String _firstName = "";
+	String _lastName = "";
 	String _nickname = "";
-	String _phonenumber = "";
-	String _darkestsecret = "";
+	String _phoneNumber = "";
+	String _darkestSecret = "";
 
 	void setFirstName() {
 		print('Enter First name:');
 		final data = stdin.readLineSync();
 		if (data != null) {
-			_firstname = data;
+			_firstName = data;
 		}
-		while (_firstname == "") {
+		while (_firstName == "") {
 			print('The data field must be filled!');
 			final data = stdin.readLineSync();
 			if (data != null) {
-				_firstname = data;
+				_firstName = data;
 			}
 		}
 	}
-	// String getLineFromSTDIO(String text) {
-	// 	print('Enter $text:');
-	// 	final data = stdin.readLineSync();
-	// 	if (data != null) {
-	// 		_firstname = data;
-	// 		return (data);
-	// 	}
-	// 	while (_firstname == "") {
-	// 		print('The data field must be filled!');
-	// 		final data = stdin.readLineSync();
-	// 		if (data != null) {
-	// 			_firstname = data;
-	// 		}
-	// 	}
-	// }
 
 	void	setLastName() {
 		print('Enter Last name:');
 		final data = stdin.readLineSync();
 		if (data != null) {
-			_lastname = data;
+			_lastName = data;
 		}
-		while (_lastname == "")	{
+		while (_lastName == "")	{
 			print('The data field must be filled!');
 			final data = stdin.readLineSync();
 			if (data != null) {
-				_lastname= data;
+				_lastName= data;
 			}
 		}
 	}
@@ -71,28 +56,28 @@ class Contact {
 		print('Enter phone number:');
 		final data = stdin.readLineSync();
 		if (data != null) {
-			_phonenumber = data;
+			_phoneNumber = data;
 		}
-		while (_phonenumber == "") {
+		while (_phoneNumber == "") {
 			print('The data field must be filled!');
 			final data = stdin.readLineSync();
 			if (data != null) {
-				_phonenumber = data;
+				_phoneNumber = data;
 			}
 		}
 	}
 
 	void	setDarkestSecret() {
-		print('Enter $_firstname\'s darkest secret:');
+		print('Enter $_firstName\'s darkest secret:');
 		final data = stdin.readLineSync();
 		if (data != null) {
-			_darkestsecret = data;
+			_darkestSecret = data;
 		}
-		while (_darkestsecret == "") {
+		while (_darkestSecret == "") {
 			print('The data field must be filled!');
 			final data = stdin.readLineSync();
 			if (data != null) {
-				_darkestsecret= data;
+				_darkestSecret= data;
 			}
 		}
 	}
@@ -107,16 +92,16 @@ class Contact {
 	}
 
 	void printFullContactInfo() {
-		print('First name: $_firstname');
-		print('Last name: $_lastname');
+		print('First name: $_firstName');
+		print('Last name: $_lastName');
 		print('Nick name: $_nickname');
-		print('Phone number: $_phonenumber');
-		print('Darkest secret: $_darkestsecret');
+		print('Phone number: $_phoneNumber');
+		print('Darkest secret: $_darkestSecret');
 	}
 
-	String get firstName => _firstname;
-	String get lastName => _lastname;
+	String get firstName => _firstName;
+	String get lastName => _lastName;
 	String get nickname => _nickname;
-	String get phoneNumber => _phonenumber;
-	String get darkestSecret => _darkestsecret;
+	String get phoneNumber => _phoneNumber;
+	String get darkestSecret => _darkestSecret;
 }

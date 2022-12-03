@@ -17,11 +17,6 @@ class PhoneBook {
 			while (true) {
 				if (input == "yes" || input == "y" || input == "YES" || input == "Y") {
 					Contact newContact = Contact();
-					// newContact.setFirstName();
-					// newContact.setLastName();
-					// newContact.setNickname();	
-					// newContact.setPhoneNumber();
-					// newContact.setDarkestSecret();
 					newContact.setContactInfo();
 					rewriteOldestContact(newContact);
 					print('Allowed commands: ADD, SEARCH, EXIT.');
@@ -35,11 +30,6 @@ class PhoneBook {
 				}
 			}
 		}
-		// contacts[m_index].setFirstName();
-		// contacts[m_index].setLastName();
-		// contacts[m_index].setNickname();
-		// contacts[m_index].setPhoneNumber();
-		// contacts[m_index].setDarkestSecret();
 		contacts[m_index].setContactInfo();
 		m_index++;
 		m_filled++;
@@ -87,15 +77,6 @@ class PhoneBook {
 		print('The contact was successfully replaced');
 	}
 
-	// void printContact(int i) {
-	// 	print('First name: ${contacts[i].firstName}');
-	// 	print('Last name: ${contacts[i].lastName}');
-	// 	print('Nick name: ${contacts[i].nickname}');
-	// 	print('Phone number: ${contacts[i].phoneNumber}');
-	// 	print('Darkest secret: ${contacts[i].darkestSecret}');
-	// 	print('Allowed commands: ADD, SEARCH, EXIT.');
-	// }
-
 	void searchContact() {
 		if (m_filled == 0) {
 			print('The Phone Book is empty!');
@@ -106,17 +87,16 @@ class PhoneBook {
 		while (true) {
 		final data = stdin.readLineSync();
 			if (data != null) {
+				final i = int.parse(data);
 				if (!data.contains(RegExp(r'^[0-9]+$'))) {
-					print('Incorect contact\'s Index! Please try again. Enter contact\'s Index:');
+					print('Incorrect contact\'s Index! Please try again. Enter contact\'s Index:');
 					continue;
-				} else if (int.parse(data) < m_index) {
-					// printContact(int.parse(data));
-					// int i = int.parse(data);
-					contacts[int.parse(data)].printFullContactInfo;
+				} else if (i < m_index) {
+					contacts[i].printFullContactInfo();
 					print('Allowed commands: ADD, SEARCH, EXIT.');
 					return;
 				} else {
-					print('There is no contact with that Index!');	
+					print('There is no contact with that Index!');
 				}
 			}
 		}
