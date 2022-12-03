@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'Contact.dart';
+import 'contact.dart';
 
 const int max_contacts = 8;
 const int column_width = 10;
@@ -11,17 +11,18 @@ class PhoneBook {
 	List<Contact> contacts = List<Contact>.generate(8, (index) => Contact());
 
 	void addContact() {
-		if (this.m_filled >= max_contacts) {
+		if (m_filled >= max_contacts) {
 			print('Phone Book is full! Would you like to rewrite the oldest contact? (yes/no)');
 			String? input = stdin.readLineSync();
 			while (true) {
 				if (input == "yes" || input == "y" || input == "YES" || input == "Y") {
 					Contact newContact = Contact();
-					newContact.setFirstName();
-					newContact.setLastName();
-					newContact.setNickname();	
-					newContact.setPhoneNumber();
-					newContact.setDarkestSecret();
+					// newContact.setFirstName();
+					// newContact.setLastName();
+					// newContact.setNickname();	
+					// newContact.setPhoneNumber();
+					// newContact.setDarkestSecret();
+					newContact.setContactInfo();
 					rewriteOldestContact(newContact);
 					print('Allowed commands: ADD, SEARCH, EXIT.');
 					m_filled++;
@@ -34,18 +35,18 @@ class PhoneBook {
 				}
 			}
 		}
-		contacts[this.m_index].setFirstName();
-		contacts[this.m_index].setLastName();
-		contacts[this.m_index].setNickname();
-		contacts[this.m_index].setPhoneNumber();
-		contacts[this.m_index].setDarkestSecret();
+		// contacts[m_index].setFirstName();
+		// contacts[m_index].setLastName();
+		// contacts[m_index].setNickname();
+		// contacts[m_index].setPhoneNumber();
+		// contacts[m_index].setDarkestSecret();
+		contacts[m_index].setContactInfo();
 		m_index++;
 		m_filled++;
-		// print('Contact information is added.');
 		print('Allowed commands: ADD, SEARCH, EXIT.');
 		}
 
-	void printTrimed(String str){
+	void printTrimmed(String str){
 		int len = str.length;
 
 		if (len < column_width) {
@@ -71,28 +72,29 @@ class PhoneBook {
 			stdout.write(spaces);
 			stdout.write(i);
 			stdout.write('|');
-			printTrimed(contacts[i].firstName);
+			printTrimmed(contacts[i].firstName);
 			stdout.write('|');
-			printTrimed(contacts[i].lastName);
+			printTrimmed(contacts[i].lastName);
 			stdout.write('|');
-			printTrimed(contacts[i].nickname);
+			printTrimmed(contacts[i].nickname);
 			print('|');
 		}
 	}
 
 	void rewriteOldestContact(Contact newContact) {
-		int i = (m_filled % 7) - 1;
+		int i = (m_filled % (max_contacts - 1)) - 1;
 		contacts[i] = newContact;
+		print('The contact was successfully replaced');
 	}
 
-	void printContact(int i) {
-		print('First name: ${contacts[i].firstName}');
-		print('Last name: ${contacts[i].lastName}');
-		print('Nick name: ${contacts[i].nickname}');
-		print('Phone number: ${contacts[i].phoneNumber}');
-		print('Darkest secret: ${contacts[i].darkestSecret}');
-		print('Allowed commands: ADD, SEARCH, EXIT.');
-	}
+	// void printContact(int i) {
+	// 	print('First name: ${contacts[i].firstName}');
+	// 	print('Last name: ${contacts[i].lastName}');
+	// 	print('Nick name: ${contacts[i].nickname}');
+	// 	print('Phone number: ${contacts[i].phoneNumber}');
+	// 	print('Darkest secret: ${contacts[i].darkestSecret}');
+	// 	print('Allowed commands: ADD, SEARCH, EXIT.');
+	// }
 
 	void searchContact() {
 		if (m_filled == 0) {
@@ -108,7 +110,10 @@ class PhoneBook {
 					print('Incorect contact\'s Index! Please try again. Enter contact\'s Index:');
 					continue;
 				} else if (int.parse(data) < m_index) {
-					printContact(int.parse(data));
+					// printContact(int.parse(data));
+					// int i = int.parse(data);
+					contacts[int.parse(data)].printFullContactInfo;
+					print('Allowed commands: ADD, SEARCH, EXIT.');
 					return;
 				} else {
 					print('There is no contact with that Index!');	

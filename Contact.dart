@@ -21,6 +21,21 @@ class Contact {
 			}
 		}
 	}
+	// String getLineFromSTDIO(String text) {
+	// 	print('Enter $text:');
+	// 	final data = stdin.readLineSync();
+	// 	if (data != null) {
+	// 		_firstname = data;
+	// 		return (data);
+	// 	}
+	// 	while (_firstname == "") {
+	// 		print('The data field must be filled!');
+	// 		final data = stdin.readLineSync();
+	// 		if (data != null) {
+	// 			_firstname = data;
+	// 		}
+	// 	}
+	// }
 
 	void	setLastName() {
 		print('Enter Last name:');
@@ -80,6 +95,23 @@ class Contact {
 				_darkestsecret= data;
 			}
 		}
+	}
+
+	void setContactInfo() {
+		setFirstName();
+		setLastName();
+		setNickname();
+		setPhoneNumber();
+		setDarkestSecret();
+		print('Contact information was successfully added.');
+	}
+
+	void printFullContactInfo() {
+		print('First name: $_firstname');
+		print('Last name: $_lastname');
+		print('Nick name: $_nickname');
+		print('Phone number: $_phonenumber');
+		print('Darkest secret: $_darkestsecret');
 	}
 
 	String get firstName => _firstname;
