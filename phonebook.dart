@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'contact.dart';
+import 'сontact.dart';
 
 const int max_contacts = 8;
 const int column_width = 10;
