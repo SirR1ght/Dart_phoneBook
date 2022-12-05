@@ -7,6 +7,7 @@ class Contact {
 	String _phoneNumber = "";
 	String _darkestSecret = "";
 
+//TODO make one function that prints the given argument
 	void setFirstName() {
 		print('Enter First name:');
 		final data = stdin.readLineSync();

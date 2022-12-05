@@ -55,6 +55,7 @@ class PhoneBook {
 		print('*********************************************\n'
 			'|     Index|First name| Last name|  Nickname|\n'
 			'*********************************************');
+			//TODO make a function that prints the header according to the given width
 		for (int i = 0; i < m_index; i++)
 		{
 			stdout.write('|');
